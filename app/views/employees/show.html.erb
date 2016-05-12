@@ -22,8 +22,11 @@
 
 <p>
   <strong>Organisation:</strong>
-  <%= @employee.organisation %>
+  <%= @employee.organisation.name %>
+  <%= link_to 'See all employees at ' + @employee.organisation.name, @employee.organisation %>
 </p>
 
 <%= link_to 'Edit', edit_employee_path(@employee) %> |
 <%= link_to 'Back', employees_path %>
+<%= link_to 'Organisations', organisations_path %>
+<%= link_to 'People', employees_path %>

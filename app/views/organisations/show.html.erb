@@ -14,6 +14,39 @@
   <strong>Phone:</strong>
   <%= @organisation.phone %>
 </p>
+<% if @organisation.employees.length > 0 %>
+  <p>
+    <strong>Employees:</strong>
+      <table>
+        <thead>
+          <tr>
+            <th>First name</th>
+            <th>Last name</th>
+            <th>Address</th>
+            <th>Phone</th>
+            <th colspan="3"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @organisation.employees.each do |employee| %>
+            <tr>
+              <td><%= employee.first_name %></td>
+              <td><%= employee.last_name %></td>
+              <td><%= employee.address %></td>
+              <td><%= employee.phone %></td>
+              <td><%= link_to 'Show', employee %></td>
+              <td><%= link_to 'Edit', edit_employee_path(employee) %></td>
+              <td><%= link_to 'Destroy', employee, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </ul>
+  </p>
+<% end %>
 
+<%= link_to 'Add Employee', new_organisation_employee_path(@organisation) %> |
 <%= link_to 'Edit', edit_organisation_path(@organisation) %> |
-<%= link_to 'Back', organisations_path %>
+<%= link_to 'Back', organisations_path %> |
+<%= link_to 'Organisations', organisations_path %> |
+<%= link_to 'People', employees_path %>

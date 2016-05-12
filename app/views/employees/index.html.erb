@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Employees</h1>
+<h1>Listing All People</h1>
 
 <table>
   <thead>
@@ -21,7 +21,7 @@
         <td><%= employee.last_name %></td>
         <td><%= employee.address %></td>
         <td><%= employee.phone %></td>
-        <td><%= employee.organisation %></td>
+        <td><% if employee.organisation %><%= employee.organisation.name %><% end %></td>
         <td><%= link_to 'Show', employee %></td>
         <td><%= link_to 'Edit', edit_employee_path(employee) %></td>
         <td><%= link_to 'Destroy', employee, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -32,4 +32,5 @@
 
 <br>
 
-<%= link_to 'New Employee', new_employee_path %>
+<%= link_to 'New Person', new_employee_path %> |
+<%= link_to 'Organisations', organisations_path %>

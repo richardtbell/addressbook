@@ -29,7 +29,7 @@
   </div>
   <div class="field">
     <%= f.label :organisation_id %><br>
-    <%= f.text_field :organisation_id %>
+    <%= f.select :organisation_id, Organisation.all.collect {|o| [o.name, o.id]}, {include_blank: true} %>
   </div>
   <div class="actions">
     <%= f.submit %>

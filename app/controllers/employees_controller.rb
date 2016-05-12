@@ -15,6 +15,9 @@ class EmployeesController < ApplicationController
   # GET /employees/new
   def new
     @employee = Employee.new
+    if params[:organisation_id]
+      @employee.organisation = Organisation.find(params[:organisation_id])
+    end
   end
 
   # GET /employees/1/edit
