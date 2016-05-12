@@ -1,0 +1,47 @@
+@import "vars";
+
+.btn {
+  display: inline-block;
+  margin: 0 10px;
+  padding: 10px 24px 12px;
+  background-color: $btn-default;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: all 0.5s;
+  -webkit-transition: all 0.5s;
+  font-size: 14px;
+  line-height: 1;
+  border-radius: 4px;
+  color: white;
+
+  &:hover,
+  &:visited {
+    color: white;
+  }
+
+  &:hover {
+    background-color: $btn-default-hover;
+  }
+
+  &--secondary {
+    background-color: $btn-secondary;
+
+    &:hover {
+      background-color: $btn-secondary-hover;
+    }
+  }
+
+  &--warning {
+    background-color: $btn-warning;
+
+    &:hover {
+      background-color: $btn-warning-hover;
+    }
+  }
+
+}
+input.btn {
+  border: none;
+  max-width: 300px;
+  margin-top: 20px;
+}

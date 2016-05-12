@@ -18,15 +18,16 @@
         <td><%= organisation.name %></td>
         <td><%= organisation.address %></td>
         <td><%= organisation.phone %></td>
-        <td><%= link_to 'Show', organisation %></td>
-        <td><%= link_to 'Edit', edit_organisation_path(organisation) %></td>
-        <td><%= link_to 'Destroy', organisation, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', organisation, class: 'btn btn--secondary' %></td>
+        <td><%= link_to 'Edit', edit_organisation_path(organisation), class: 'btn' %></td>
+        <td><%= link_to 'Delete', organisation, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn--warning' %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
 <br>
-
-<%= link_to 'New Organisation', new_organisation_path %> |
-<%= link_to 'People', employees_path %>
+<div class='link-block'>
+  <%= link_to 'New Organisation', new_organisation_path, class: 'btn' %>
+  <%= link_to 'People', employees_path, class: 'btn btn--secondary' %>
+</div>

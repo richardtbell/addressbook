@@ -1,5 +1,9 @@
 <p id="notice"><%= notice %></p>
 
+<h1>
+  <%= @employee.first_name %>
+  <%= @employee.last_name %>
+</h1>
 <p>
   <strong>First name:</strong>
   <%= @employee.first_name %>
@@ -23,10 +27,13 @@
 <p>
   <strong>Organisation:</strong>
   <%= @employee.organisation.name %>
-  <%= link_to 'See all employees at ' + @employee.organisation.name, @employee.organisation %>
+  </br>
+  </br>
+  <%= link_to 'See all employees at ' + @employee.organisation.name, @employee.organisation, class: 'btn btn--secondary' %>
 </p>
 
-<%= link_to 'Edit', edit_employee_path(@employee) %> |
-<%= link_to 'Back', employees_path %>
-<%= link_to 'Organisations', organisations_path %>
-<%= link_to 'People', employees_path %>
+<div class='link-block'>
+  <%= link_to 'Edit', edit_employee_path(@employee), class: 'btn' %>
+  <%= link_to 'Organisations', organisations_path, class: 'btn btn--secondary' %>
+  <%= link_to 'People', employees_path, class: 'btn btn--secondary' %>
+</div>

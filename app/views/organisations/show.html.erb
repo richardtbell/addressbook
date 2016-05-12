@@ -1,5 +1,9 @@
 <p id="notice"><%= notice %></p>
 
+<h1>
+  <%= @organisation.name %>
+</h1>
+
 <p>
   <strong>Name:</strong>
   <%= @organisation.name %>
@@ -34,9 +38,9 @@
               <td><%= employee.last_name %></td>
               <td><%= employee.address %></td>
               <td><%= employee.phone %></td>
-              <td><%= link_to 'Show', employee %></td>
-              <td><%= link_to 'Edit', edit_employee_path(employee) %></td>
-              <td><%= link_to 'Destroy', employee, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+              <td><%= link_to 'Show', employee, class: 'btn btn--secondary' %></td>
+              <td><%= link_to 'Edit', edit_employee_path(employee), class: 'btn' %></td>
+              <td><%= link_to 'Delete', employee, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn--warning' %></td>
             </tr>
           <% end %>
         </tbody>
@@ -45,8 +49,9 @@
   </p>
 <% end %>
 
-<%= link_to 'Add Employee', new_organisation_employee_path(@organisation) %> |
-<%= link_to 'Edit', edit_organisation_path(@organisation) %> |
-<%= link_to 'Back', organisations_path %> |
-<%= link_to 'Organisations', organisations_path %> |
-<%= link_to 'People', employees_path %>
+<div class='link-block'>
+  <%= link_to 'Add Employee', new_organisation_employee_path(@organisation), class: 'btn btn--secondary' %>
+  <%= link_to 'Edit', edit_organisation_path(@organisation), class: 'btn btn--secondary' %>
+  <%= link_to 'Organisations', organisations_path, class: 'btn' %>
+  <%= link_to 'People', employees_path, class: 'btn' %>
+</div>
