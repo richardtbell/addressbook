@@ -30,6 +30,9 @@
   <div class="field">
     <%= f.label :organisation_id %>
     <%= f.select :organisation_id, Organisation.all.collect {|o| [o.name, o.id]}, {include_blank: true} %>
+    <div>Not on the list?
+      <%= link_to 'Add new organisation', new_organisation_path %>
+    </div>
   </div>
   <div class="actions">
     <%= f.submit "add person", class: "btn" %>
