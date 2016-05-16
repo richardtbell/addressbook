@@ -2,33 +2,37 @@
 
 <h1>Listing All People</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>First name</th>
-      <th>Last name</th>
-      <th>Address</th>
-      <th>Phone</th>
-      <th>Organisation</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @employees.each do |employee| %>
+<% if @employees.length == 0 %>
+  <div>Please add a new person</div>
+<% else %>
+  <table>
+    <thead>
       <tr>
-        <td><%= employee.first_name %></td>
-        <td><%= employee.last_name %></td>
-        <td><%= employee.address %></td>
-        <td><%= employee.phone %></td>
-        <td><% if employee.organisation %><%= employee.organisation.name %><% end %></td>
-        <td><%= link_to 'Show', employee, class: 'btn btn--secondary' %></td>
-        <td><%= link_to 'Edit', edit_employee_path(employee), class: 'btn' %></td>
-        <td><%= link_to 'Delete', employee, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn--warning' %></td>
+        <th>First name</th>
+        <th>Last name</th>
+        <th>Address</th>
+        <th>Phone</th>
+        <th>Organisation</th>
+        <th colspan="3"></th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
+
+    <tbody>
+      <% @employees.each do |employee| %>
+        <tr>
+          <td><%= employee.first_name %></td>
+          <td><%= employee.last_name %></td>
+          <td><%= employee.address %></td>
+          <td><%= employee.phone %></td>
+          <td><% if employee.organisation %><%= employee.organisation.name %><% end %></td>
+          <td><%= link_to 'Show', employee, class: 'btn btn--secondary' %></td>
+          <td><%= link_to 'Edit', edit_employee_path(employee), class: 'btn' %></td>
+          <td><%= link_to 'Delete', employee, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn--warning' %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% end %>
 
 <br>
 <div class='link-block'>

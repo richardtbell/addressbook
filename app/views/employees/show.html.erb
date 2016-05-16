@@ -26,10 +26,14 @@
 
 <p>
   <strong>Organisation:</strong>
-  <%= @employee.organisation.name %>
-  </br>
-  </br>
-  <%= link_to 'See all employees at ' + @employee.organisation.name, @employee.organisation, class: 'btn btn--secondary' %>
+  <% if @employee.organisation.blank? %>
+    None
+  <% else %>
+    <%= @employee.organisation.name %>
+    </br>
+    </br>
+    <%= link_to 'See all employees at ' + @employee.organisation.name, @employee.organisation, class: 'btn btn--secondary' %>
+  <% end %>
 </p>
 
 <div class='link-block'>
